@@ -4,6 +4,7 @@ import com.ipi.jva324.commande.model.Commande;
 import com.ipi.jva324.commande.repository.CommandeRepository;
 import com.ipi.jva324.stock.model.ProduitEnStock;
 import com.ipi.jva324.stock.service.ProduitService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

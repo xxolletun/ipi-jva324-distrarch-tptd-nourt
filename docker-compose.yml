@@ -6,10 +6,18 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - DB_USER=ipi
+      - DB_PASSWORD=ipi
+      - DB_NAME=jva324
     ports:
       - '15432:5432'
-    #volumes:
-    #  - db:/var/lib/postgresql/data
+    volumes:
+      # data - either a docker volume : (to be defined at the end)
+      #- postgres-pgdata:/var/lib/postgresql/data
+      # or a bind-mounted volume which is be easier to back up and use with OS tools :
+      - ./volumes/pg-data:/var/lib/postgresql/data
+      - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
   #discovery-service:
   #  container_name: discovery-service
   #  build: ./discovery
@@ -20,6 +28,10 @@ services:
     build: ./commande
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+      - DB_JAVA_DRIVER=org.postgresql.Driver
+      - DB_URL=jdbc:postgresql://db:5432/jva324
+      - DB_USERNAME=ipi
+      - DB_PASSWORD=ipi
     ports:
       - "8080:8080"
     depends_on:

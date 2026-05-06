@@ -8,6 +8,7 @@ import com.ipi.jva324.commande.service.StockInsuffisantCommandeException;
 import com.ipi.jva324.stock.model.ProduitEnStock;
 import com.ipi.jva324.stock.repository.ProduitEnStockRepository;
 import com.ipi.jva324.stock.service.ProduitService;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
